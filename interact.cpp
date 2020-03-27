@@ -155,3 +155,9 @@ int Interact::idFromUser(const string & userName) const
          return idUser;
    return ID_INVALID;
 }
+
+
+void Interact::setUserControl(Control newControlLevel)
+{
+   userControl = newControlLevel;
+}

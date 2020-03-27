@@ -56,9 +56,13 @@ public:
    Control authenticate(const std::string & userName,
                      const std::string & password) const;
 
+   //set control level
+   void setUserControl(Control newControlLevel);
+
 private:
    Messages * pMessages;
    std::string userName;
+   Control userControl;
 
    // prompt for a line of input
    std::string promptForLine(const char * verb) const;
@@ -69,6 +73,7 @@ private:
 
    // find the ID of a given user
    int idFromUser(const std::string & userName) const;
+
 };
 
 // display the set of users in the system

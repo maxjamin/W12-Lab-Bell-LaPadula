@@ -56,11 +56,10 @@ void session(Messages & messages)
    string password = simplePrompt("What is your password? ");
 
    // start a session
-   Control userControl;
    Interact interact(userName, password, messages);
 
    //check user athentication
-   userControl = interact.authenticate(userName, password);
+   interact.setUserControl(interact.authenticate(userName, password));
 
 
    cout << "Welcome, " << userName << " please select an option:\n";
