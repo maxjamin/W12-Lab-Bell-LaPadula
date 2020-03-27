@@ -12,5 +12,5 @@
 // you may need to put something here...
 enum Control
 {
-  public, confidential, privileged, secret
-};
+  PUBLIC, CONFIDENTIAL, PRIVILEGED, SECRET
+}; 
