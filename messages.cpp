@@ -119,9 +119,20 @@ void Messages::readMessages(const char * fileName)
       getline(fin, text);
 
 
+      //place textcontrol into temp Control var
+      Control tempControl;
+      if(textControl == "PUBLIC")
+          tempControl = PUBLIC;
+      else if(textControl == "CONFIDENTIAL")
+        tempControl = CONFIDENTIAL;
+      else if(textControl == "PRIVILEGED")
+        tempControl = PRIVILEGED;
+      else if(textControl == "SECRET")
+        tempControl = SECRET;
+
       if (!fin.fail())
       {
-         Message message(text, author, date);
+         Message message(text, author, date, tempControl);
          messages.push_back(message);
       }
    }
