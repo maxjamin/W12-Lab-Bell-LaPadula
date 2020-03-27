@@ -52,8 +52,15 @@ string simplePrompt(const char * prompt)
 void session(Messages & messages)
 {
    displayUsers();
+   Control userControl;
    string userName = simplePrompt("What is your username? ");
    string password = simplePrompt("What is your password? ");
+
+   //check user athentication
+   while(true)
+   {
+
+   }
 
    // start a session
    Interact interact(userName, password, messages);
