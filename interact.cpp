@@ -133,7 +133,7 @@ int Interact::promptForId(const char * verb) const
  * INTERACT :: AUTHENTICATION
  * authenticate the user: find their control level
  ****************************************************/
-void Interact::authenticate(const string & userName,
+Control Interact::authenticate(const string & userName,
                             const string & password) const
 {
    int id = idFromUser(userName);

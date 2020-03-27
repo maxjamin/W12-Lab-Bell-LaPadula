@@ -52,18 +52,20 @@ string simplePrompt(const char * prompt)
 void session(Messages & messages)
 {
    displayUsers();
-   Control userControl;
    string userName = simplePrompt("What is your username? ");
    string password = simplePrompt("What is your password? ");
+
+   // start a session
+   Interact interact(userName, password, messages);
+    Control userControl;
 
    //check user athentication
    while(true)
    {
-
+      userControl = interact.athenticate(username, password);
    }
 
-   // start a session
-   Interact interact(userName, password, messages);
+
    cout << "Welcome, " << userName << " please select an option:\n";
    displayOptions();
 
