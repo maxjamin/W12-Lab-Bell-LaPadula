@@ -63,7 +63,8 @@ void session(Messages & messages)
    interact.setUserControl(tempLevel);
 
 
-   cout << "Welcome, " << userName << " please select an option:\n";
+
+   cout << "Welcome, " << userName << " - " << interact.getUserControl() << " please select an option:\n";
    displayOptions();
 
    // inteact loop

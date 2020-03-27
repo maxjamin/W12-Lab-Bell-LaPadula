@@ -93,7 +93,8 @@ void Interact::update()
  ***************************************************/
 void Interact::remove()
 {
-   pMessages->remove(promptForId("delete"));
+   pMessages->remove(promptForId("delete"),
+                     userControl);
 }
 
 /****************************************************
@@ -162,4 +163,10 @@ int Interact::idFromUser(const string & userName) const
 void Interact::setUserControl(Control newControlLevel)
 {
    userControl = newControlLevel;
+}
+
+//get userControl
+Control Interact::getUserControl()
+{
+   return userControl;
 }

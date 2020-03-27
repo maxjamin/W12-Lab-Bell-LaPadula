@@ -38,7 +38,8 @@ public:
                Control userLevel);
 
    // remove a single message
-   void remove(int id);
+   void remove(int id, 
+               Control userLevel);
 
    // add a new message
    void add(const std::string & text,

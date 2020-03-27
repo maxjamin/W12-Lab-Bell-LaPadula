@@ -59,6 +59,9 @@ public:
    //set control level
    void setUserControl(Control newControlLevel);
 
+   //get userControl
+   Control getUserControl();
+
 private:
    Messages * pMessages;
    std::string userName;

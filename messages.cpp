@@ -67,12 +67,13 @@ void Messages::update(int id, const string & text, Control userLevel)
  * MESSAGES :: REMOVE
  * remove a single message
  **********************************************/
-void Messages::remove(int id)
+void Messages::remove(int id, Control userLevel)
 {
    for (list <Message> :: iterator it = messages.begin();
         it != messages.end();
         ++it)
-      if (it->getID() == id)
+      //Only let the user remove a message is >= to the users Control level
+      if (it->getID() == id && userLevel <= it->getControlLevel())
          it->clear();
 }
 
@@ -85,7 +86,7 @@ void Messages::add(const string & text,
                    const string & date,
                    Control userControlLevel)
 {
-   Message message(text, author, date);
+   Message message(text, author, date, userControlLevel);
    messages.push_back(message);
 }
 
@@ -116,6 +117,7 @@ void Messages::readMessages(const char * fileName)
       getline(fin, author, '|');
       getline(fin, date, '|');
       getline(fin, text);
+
 
       if (!fin.fail())
       {
