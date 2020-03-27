@@ -52,6 +52,10 @@ public:
    // remove one message from the list
    void remove();
 
+   // authenticate the user;
+   Control authenticate(const std::string & userName,
+                     const std::string & password) const;
+
 private:
    Messages * pMessages;
    std::string userName;
@@ -62,9 +66,6 @@ private:
    // prompt for a message ID
    int promptForId(const char * verb) const;
 
-   // authenticate the user;
-   Control authenticate(const std::string & userName,
-                     const std::string & password) const;
 
    // find the ID of a given user
    int idFromUser(const std::string & userName) const;

@@ -139,7 +139,9 @@ Control Interact::authenticate(const string & userName,
    int id = idFromUser(userName);
    bool authenticated = false;
    if (ID_INVALID != id && password == string(users[id].password))
-      authenticated = true;
+      return users[id].controlLevel;
+   else
+      return PUBLIC;
 }
 
 /****************************************************

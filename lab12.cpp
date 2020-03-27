@@ -57,12 +57,12 @@ void session(Messages & messages)
 
    // start a session
    Interact interact(userName, password, messages);
-    Control userControl;
+   Control userControl;
 
    //check user athentication
    while(true)
    {
-      userControl = interact.athenticate(username, password);
+      userControl = interact.authenticate(userName, password);
    }
 
 
