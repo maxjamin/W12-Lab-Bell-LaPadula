@@ -3,7 +3,7 @@
 *    Lab 12, Bell-LaPadula
 *    Brother Helfrich, CS470
 * Author:
-*    your name
+*    Ben Smith
 * Summary: 
 *    This program is designed to keep track of a number of secret
 *    messages. IT will display messages to the appropriate users

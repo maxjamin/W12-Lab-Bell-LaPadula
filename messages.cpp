@@ -2,7 +2,7 @@
  * COMPONENT:
  *    MESSAGES
  * Author:
- *    Br. Helfrich, <your name here if you made a change>
+ *    Br. Helfrich, Ben Smith
  * Summary:
  *    This class stores the notion of a collection of messages
  ************************************************************************/

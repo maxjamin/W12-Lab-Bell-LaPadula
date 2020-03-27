@@ -4,7 +4,7 @@
  * COMPONENT:
  *    INTERACT
  * Author:
- *    Br. Helfrich, <your name here if you made a change>
+ *    Br. Helfrich, Ben Smith
  * Summary:
  *    This class allows one user to interact with the system
  ************************************************************************/
