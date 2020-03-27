@@ -28,6 +28,7 @@ void Messages::display(Control userLevel) const
         it != messages.end();
         ++it)
    {
+      //Only show displays that have the same Control level or higher
       if(userLevel >= it->getControlLevel())
         it->displayProperties();
    }
@@ -37,12 +38,13 @@ void Messages::display(Control userLevel) const
  * MESSAGES :: SHOW
  * show a single message
  **********************************************/
-void Messages::show(int id) const
+void Messages::show(int id, Control userLevel) const
 {
    for (list <Message> :: const_iterator it = messages.begin();
         it != messages.end();
         ++it)
-      if (it->getID() == id)
+      //Only show displays that have the same Control level or higher
+      if (it->getID() == id && userLevel >= it->getControlLevel())
          it->displayText();
 }
 
@@ -50,12 +52,14 @@ void Messages::show(int id) const
  * MESSAGES :: UPDATE
  * update one single message
  ***********************************************/
-void Messages::update(int id, const string & text)
+void Messages::update(int id, const string & text, Control userLevel)
 {
    for (list <Message> :: iterator it = messages.begin();
         it != messages.end();
         ++it)
-      if (it->getID() == id)
+
+      //Only let the user change if the message is >= to the users Control level
+      if (it->getID() == id && userLevel <= it->getControlLevel())
          it->updateText(text);
 }
 

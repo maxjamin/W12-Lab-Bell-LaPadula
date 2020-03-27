@@ -51,7 +51,7 @@ Interact::Interact(const string & userName,
  ****************************************************/
 void Interact::show() const
 {
-   pMessages->show(promptForId("display"));
+   pMessages->show(promptForId("display"), userControl);
 }
    
 /****************************************************
@@ -83,7 +83,8 @@ void Interact::update()
 {
    int id = promptForId("update");
    pMessages->update(id,
-                     promptForLine("message"));
+                     promptForLine("message"),
+                     userControl);
 }
 
 /****************************************************

@@ -30,11 +30,12 @@ public:
    void display(Control userLevel) const;
 
    // show a single message
-   void show(int id) const;
+   void show(int id, Control userLevel) const;
 
    // update one single message
    void update(int id,
-               const std::string & text);
+               const std::string & text,
+               Control userLevel);
 
    // remove a single message
    void remove(int id);
