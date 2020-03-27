@@ -22,12 +22,15 @@ using namespace std;
  * MESSAGES :: DISPLAY
  * display the list of messages
  ***********************************************/
-void Messages::display() const
+void Messages::display(Control userLevel) const
 {
    for (list <Message> :: const_iterator it = messages.begin();
         it != messages.end();
         ++it)
-      it->displayProperties();
+   {
+      if(userLevel >= it->getControlLevel())
+        it->displayProperties();
+   }
 }
 
 /***********************************************
@@ -75,7 +78,8 @@ void Messages::remove(int id)
  **********************************************/
 void Messages::add(const string & text,
                    const string & author,
-                   const string & date)
+                   const string & date,
+                   Control userControlLevel)
 {
    Message message(text, author, date);
    messages.push_back(message);

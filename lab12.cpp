@@ -59,7 +59,8 @@ void session(Messages & messages)
    Interact interact(userName, password, messages);
 
    //check user athentication
-   interact.setUserControl(interact.authenticate(userName, password));
+   Control tempLevel = interact.authenticate(userName, password);
+   interact.setUserControl(tempLevel);
 
 
    cout << "Welcome, " << userName << " please select an option:\n";

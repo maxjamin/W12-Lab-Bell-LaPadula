@@ -60,7 +60,7 @@ void Interact::show() const
  ***************************************************/
 void Interact::display() const
 {
-   pMessages->display();
+   pMessages->display(userControl);
 }
 
 /****************************************************
@@ -71,7 +71,8 @@ void Interact::add()
 {
    pMessages->add(promptForLine("message"),
                   userName,
-                  promptForLine("date"));
+                  promptForLine("date"),
+                  userControl);
 }
 
 /****************************************************

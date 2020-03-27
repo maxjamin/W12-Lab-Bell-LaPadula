@@ -40,6 +40,23 @@ Message::Message(const string & text,
 }
 
 /**************************************************
+ * MESSAGE NON-DEFAULT CONSTRUCTOR
+ * Create a message and fill it
+ **************************************************/
+Message::Message(const string & text,
+                 const string & author,
+                 const string & date,
+                 Control control)
+{
+   this->text = text;
+   this->author = author;
+   this->date = date;
+   this->id = idNext++;
+   empty = false;
+   this->control = control;
+}
+
+/**************************************************
  * MESSAGE :: DISPLAY PROPERTIES
  * Display the attributes/properties but not the
  * content of this message
@@ -89,3 +106,9 @@ void Message::clear()
 }
 
 int Message::idNext = 100;
+
+
+Control Message::getControlLevel() const
+{
+  return control;
+}

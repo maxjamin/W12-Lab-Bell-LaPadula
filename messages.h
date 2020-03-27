@@ -27,7 +27,7 @@ public:
    Messages(const char * fileName) { readMessages(fileName); }
 
    // display the list of messages
-   void display() const;
+   void display(Control userLevel) const;
 
    // show a single message
    void show(int id) const;
@@ -42,7 +42,8 @@ public:
    // add a new message
    void add(const std::string & text,
             const std::string & author,
-            const std::string & date);
+            const std::string & date,
+            Control userControlLevel);
 
 private:
    // the list of messages

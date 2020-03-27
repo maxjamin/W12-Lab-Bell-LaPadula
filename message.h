@@ -28,8 +28,16 @@ public:
            const std::string & author,
            const std::string & date);
 
+   // the most commonly used constructor: create a message
+   Message(const std::string & text,
+           const std::string & author,
+           const std::string & date,
+           Control controlLevel);
+
    // determine the unique ID of this message
    int getID() const { return id; }
+
+   Control getControlLevel() const;
 
    // display the properties but not content of the message
    void displayProperties() const;
