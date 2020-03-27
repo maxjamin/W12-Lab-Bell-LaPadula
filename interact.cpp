@@ -23,11 +23,11 @@ using namespace std;
  *************************************************************/
 const User users[] =
 {
-   { "AdmiralAbe",     "password" },  
-   { "CaptainCharlie", "password" }, 
-   { "SeamanSam",      "password" },
-   { "SeamanSue",      "password" },
-   { "SeamanSly",      "password" }
+   { "AdmiralAbe",     "password", SECRET},  
+   { "CaptainCharlie", "password", PRIVILEGED}, 
+   { "SeamanSam",      "password", CONFIDENTIAL},
+   { "SeamanSue",      "password", CONFIDENTIAL},
+   { "SeamanSly",      "password", CONFIDENTIAL}
 };
 
 const int ID_INVALID = -1;
