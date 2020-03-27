@@ -119,16 +119,19 @@ void Messages::readMessages(const char * fileName)
       getline(fin, text);
 
 
+      std::cout << "test 01 " << textControl << "\n";
       //place textcontrol into temp Control var
       Control tempControl;
-      if(textControl == "PUBLIC")
+      if(textControl == "Public")
           tempControl = PUBLIC;
-      else if(textControl == "CONFIDENTIAL")
+      else if(textControl == "Confidential")
         tempControl = CONFIDENTIAL;
-      else if(textControl == "PRIVILEGED")
+      else if(textControl == "Privileged")
         tempControl = PRIVILEGED;
-      else if(textControl == "SECRET")
+      else if(textControl == "Secret")
         tempControl = SECRET;
+
+      std::cout << "Test " << tempControl << "\n";
 
       if (!fin.fail())
       {
