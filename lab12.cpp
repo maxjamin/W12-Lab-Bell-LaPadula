@@ -3,7 +3,7 @@
 *    Lab 12, Bell-LaPadula
 *    Brother Helfrich, CS470
 * Author:
-*    Ben Smith
+*    Ben Smith, Bretton Steiner
 * Summary: 
 *    This program is designed to keep track of a number of secret
 *    messages. IT will display messages to the appropriate users
@@ -12,9 +12,9 @@
 
 #include <iostream>   // standard input and output
 #include <string>     // for convenience
-#include <cassert>    // because I am paraniod
+#include <cassert>    // because I am paranoid
 #include "interact.h" // the interaction code
-#include "messages.h" // the collectio of messages
+#include "messages.h" // the collection of messages
 using namespace std;
 
 const char * FILE_NAME = "messages.txt";
@@ -106,12 +106,100 @@ void session(Messages & messages)
 }
 
 /***************************************************
+ * TESTCASES
+ * Runs a number of test cases
+ ***************************************************/
+void testCases(Messages & messages)
+{
+   cout << "\n****************************\n* Begin Test Cases\n****************************\n\n";
+
+   string usernames[4] = {"PUBLIC_User", "CONFIDENTIAL_User", "PRIVELEGED_User", "SECRET_User"};
+   string controlTypes[4] = {"PUBLIC", "CONFIDENTIAL", "PRIVELEGED", "SECRET"};
+
+   // For each control type
+   cout << "    [WRITE] Add test:\n";
+   for (int i = SECRET; i >= PUBLIC; i--)
+   {
+      Control control = static_cast<Control>(i);
+
+      // Start a session with a user of the control type
+      string username = usernames[i];
+      Interact interact(username, "password", messages);
+
+      if (interact.getUserControl() != control)
+         interact.setUserControl(control);
+
+      string message = "This message has control type of " + controlTypes[control] + '.';
+      string date = "28 March, 2020";
+
+      // Write initial test messages
+      interact.testCaseAdd(message, date);
+      cout << "\tAdded new message by " << username << "\n";
+   }
+
+   cout << endl;
+
+   // For each control type
+   for (int i = SECRET; i >= PUBLIC; i--)
+   {
+      Control control = static_cast<Control>(i);
+      string username = usernames[i];
+      cout << username << ", Control: " << controlTypes[control] << endl;
+
+      // Start a session with a user of the control type
+      Interact interact(username, "password", messages);
+
+      if (interact.getUserControl() != control)
+         interact.setUserControl(control);
+
+      // Run read test
+      cout << "    [READ] Display test:\n";
+      interact.display();
+
+      cout << "    [READ] Show test:\n";
+      interact.testCaseShow(110);
+      interact.testCaseShow(111);
+      interact.testCaseShow(112);
+      interact.testCaseShow(113);
+
+      cout << "    [WRITE] Update test:\n";
+      string message = " Updated by " + controlTypes[control] + ".";
+      interact.testCaseUpdate(110, message);
+      interact.testCaseUpdate(111, message);
+      interact.testCaseUpdate(112, message);
+      interact.testCaseUpdate(113, message);
+
+      if (interact.getUserControl() != SECRET)
+         interact.setUserControl(SECRET);
+
+      interact.testCaseShow(110);
+      interact.testCaseShow(111);
+      interact.testCaseShow(112);
+      interact.testCaseShow(113);
+
+      cout << endl;
+   }
+
+   cout << "\n****************************\n* End Test Cases\n****************************\n\n";
+}
+
+/***************************************************
  * MAIN
  * Where it all begins and where it all ends
  ***************************************************/
 int main()
 {
    Messages messages(FILE_NAME);
+
+   bool runTestCases;
+   char selection;
+   cout << "Run test cases? (y/n) ";
+   cin >> selection;
+   cin.ignore();
+   runTestCases = (selection == 'y' || selection == 'Y') ? true : false;
+
+   if (runTestCases)
+      testCases(messages);
 
    bool done;
    do

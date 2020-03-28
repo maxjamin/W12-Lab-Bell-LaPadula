@@ -2,7 +2,7 @@
  * COMPONENT:
  *    INTERACT
  * Author:
- *    Br. Helfrich, Ben Smith
+ *    Br. Helfrich, Ben Smith, Bretton Steiner
  * Summary:
  *    This class allows one user to interact with the system
  ************************************************************************/
@@ -53,6 +53,15 @@ void Interact::show() const
 {
    pMessages->show(promptForId("display"), userControl);
 }
+
+/****************************************************
+ * INTERACT :: TESTCASESHOW
+ * show a single message
+ ****************************************************/
+void Interact::testCaseShow(int id) const
+{
+   pMessages->show(id, userControl);
+}
    
 /****************************************************
  * INTERACT :: DISPLAY
@@ -76,6 +85,18 @@ void Interact::add()
 }
 
 /****************************************************
+ * INTERACT :: TESTCASEADD
+ * add a single message
+ ****************************************************/
+void Interact::testCaseAdd(const std::string & message, const std::string & date)
+{
+   pMessages->add(message,
+                  userName,
+                  date,
+                  userControl);
+}
+
+/****************************************************
  * INTERACT :: UDPATE
  * update a single message
  ****************************************************/
@@ -84,6 +105,17 @@ void Interact::update()
    int id = promptForId("update");
    pMessages->update(id,
                      promptForLine("message"),
+                     userControl);
+}
+
+/****************************************************
+ * INTERACT :: TESTCASEUDPATE
+ * update a single message
+ ****************************************************/
+void Interact::testCaseUpdate(int id, std::string & message)
+{
+   pMessages->testCaseUpdate(id,
+                     message,
                      userControl);
 }
 

@@ -4,7 +4,7 @@
  * COMPONENT:
  *    INTERACT
  * Author:
- *    Br. Helfrich, Ben Smith
+ *    Br. Helfrich, Ben Smith, Bretton Steiner
  * Summary:
  *    This class allows one user to interact with the system
  ************************************************************************/
@@ -39,15 +39,18 @@ public:
 
    // show a single message
    void show() const;
+   void testCaseShow(int id) const;
 
    // display the set of messages
    void display() const;
 
    // add a single message
    void add();
+   void testCaseAdd(const std::string & message, const std::string & date);
 
    // update a single message
    void update();
+   void testCaseUpdate(int id, std::string & message);
 
    // remove one message from the list
    void remove();

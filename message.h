@@ -47,6 +47,7 @@ public:
 
    // update the text componnet of the message
    void updateText(const std::string & newText);
+   void testCaseUpdateText(const std::string & newText);
 
    // clear out a message
    void clear();

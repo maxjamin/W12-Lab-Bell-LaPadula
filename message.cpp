@@ -94,6 +94,15 @@ void Message::updateText(const string & newText)
 }
 
 /**************************************************
+ * MESSAGE :: TESTCASEUPDATE TEXT
+ * Update the contents or text of the message
+ **************************************************/
+void Message::testCaseUpdateText(const string & newText)
+{
+   text = text + newText;
+}
+
+/**************************************************
  * MESSAGE :: CLEAR
  * Delete the contents of a message and mark it as empty
  *************************************************/

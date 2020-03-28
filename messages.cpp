@@ -64,6 +64,21 @@ void Messages::update(int id, const string & text, Control userLevel)
 }
 
 /***********************************************
+ * MESSAGES :: TESTCASEUPDATE
+ * update one single message
+ ***********************************************/
+void Messages::testCaseUpdate(int id, const string & text, Control userLevel)
+{
+   for (list <Message> :: iterator it = messages.begin();
+        it != messages.end();
+        ++it)
+
+      //Only let the user change if the message is >= to the users Control level
+      if (it->getID() == id && userLevel <= it->getControlLevel())
+         it->testCaseUpdateText(text);
+}
+
+/***********************************************
  * MESSAGES :: REMOVE
  * remove a single message
  **********************************************/

@@ -36,6 +36,9 @@ public:
    void update(int id,
                const std::string & text,
                Control userLevel);
+   void testCaseUpdate(int id,
+               const std::string & text,
+               Control userLevel);
 
    // remove a single message
    void remove(int id, 
