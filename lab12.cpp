@@ -3,7 +3,7 @@
 *    Lab 12, Bell-LaPadula
 *    Brother Helfrich, CS470
 * Author:
-*    Ben Smith, Bretton Steiner
+*    Ben Smith, Bretton Steiner, John Miller, Jed Billman
 * Summary: 
 *    This program is designed to keep track of a number of secret
 *    messages. IT will display messages to the appropriate users
